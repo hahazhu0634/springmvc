@@ -1,5 +1,6 @@
 package com.itcast.controller;
 
+import com.itcast.domain.Account;
 import com.itcast.domain.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -38,6 +39,13 @@ public class UserController {
     public String requestMappingTest3(@ModelAttribute("user") User user, HttpServletRequest request){
         request.setAttribute("sex","male");
         return "result";
+    }
+
+
+    @RequestMapping(value = "/requestMappingTest4",method = RequestMethod.POST)
+    public String requestMappingTest4(Account account){
+        System.out.println(account);
+        return "success";
     }
 
 }
